@@ -54,7 +54,6 @@ const Buttons: React.FunctionComponent<IButtonsProps> = (props) => {
     }
 
     if (colorBackup && !erase) {
-      console.log(colorBackup);
       props.setColor(colorBackup);
     }
   }, [erase, props, colorBackup]);
