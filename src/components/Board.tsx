@@ -50,8 +50,6 @@ const Board: React.FunctionComponent<IBoardProps> = (props) => {
     setClicked(true);
     setMouseX(event.nativeEvent.offsetX);
     setMouseY(event.nativeEvent.offsetY);
-
-    console.log(clicked, mouseX, mouseY, "down");
   };
 
   const mouseUpHandler = (
@@ -60,9 +58,6 @@ const Board: React.FunctionComponent<IBoardProps> = (props) => {
     setClicked(false);
     setMouseX(event.nativeEvent.offsetX);
     setMouseY(event.nativeEvent.offsetY);
-
-    console.log(clicked, mouseX, mouseY, "up");
-    //console.log(event);
   };
 
   const mouseMoveHandler = (
