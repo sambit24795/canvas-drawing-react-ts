@@ -1,0 +1,43 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 20%;
+  left: 16%;
+  width: 70%;
+  height: 200px;
+  background-color: #91b4d5;
+  padding: 20px;
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+  z-index: 20;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

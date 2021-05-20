@@ -10,3 +10,15 @@
   background-color: #91b4d5;
   box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
 }
+
+input {
+  font: inherit;
+  height: 40px;
+  margin: 10px;
+  border-color: #27e8a7;
+}
+
+input:focus,
+input:active {
+  outline: #27e8a7;
+}

@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useCallback, useState } from "react";
-import Buttons from "../utils/Buttons";
 
 import classes from "./Board.module.css";
+import Modal from "../ui/Modal";
+import Buttons from "../utils/Buttons";
 
 interface IBoardProps {}
 
@@ -11,6 +12,7 @@ const Board: React.FunctionComponent<IBoardProps> = (props) => {
   const [mouseY, setMouseY] = useState<number | null>(null);
   const [color, setColor] = useState<string>("#ff0000");
   const [size, setSize] = useState<number>(20);
+  const [dataUrl, setDataUrl] = useState<string | null>(null);
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -106,31 +108,45 @@ const Board: React.FunctionComponent<IBoardProps> = (props) => {
   );
 
   useEffect(() => {
-    /* const canvas = canvasRef.current;
-    const ctx = canvas?.getContext("2d")!;
-    drawCircleMemo(ctx, 100, 200, "red");
-    drawLineMemo(ctx, 300, 300, 300, 500, "red"); */
-  }, [canvasRef, drawCircleMemo, drawLineMemo]);
+    const timer: NodeJS.Timeout = setTimeout(() => {
+      const base64Image = canvasRef.current?.toDataURL("image/png");
+      console.log(base64Image);
+      if (base64Image) {
+        setDataUrl(base64Image);
+      }
+    }, 800);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [canvasRef, mouseX, mouseY]);
 
   return (
-    <div className={classes.container}>
-      <Buttons
-        setColor={setColor}
-        color={color}
-        size={size}
-        setSize={setSize}
-      />
-      <canvas
-        className={classes["canvas-element"]}
-        height="600"
-        width="800"
-        id="canvas"
-        ref={canvasRef}
-        onMouseDown={(event) => mouseDownHandler(event)}
-        onMouseUp={(event) => mouseUpHandler(event)}
-        onMouseMove={(event) => mouseMoveHandler(event)}
-      ></canvas>
-    </div>
+    <React.Fragment>
+      <Modal>
+        <label>Enter your name:</label>
+        <input type="text" />
+        <button>Submit</button>
+      </Modal>
+      <div className={classes.container}>
+        <Buttons
+          setColor={setColor}
+          color={color}
+          size={size}
+          setSize={setSize}
+        />
+        <canvas
+          className={classes["canvas-element"]}
+          height="600"
+          width="800"
+          id="canvas"
+          ref={canvasRef}
+          onMouseDown={(event) => mouseDownHandler(event)}
+          onMouseUp={(event) => mouseUpHandler(event)}
+          onMouseMove={(event) => mouseMoveHandler(event)}
+        ></canvas>
+      </div>
+    </React.Fragment>
   );
 };
 
