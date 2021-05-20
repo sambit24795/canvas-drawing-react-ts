@@ -1,0 +1,29 @@
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  background-color: #add7ff;
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
+
+.button-container > * {
+  margin: 10px;
+}
+
+button {
+  color: #fff;
+  background-color: #32ae85;
+  width: 78px;
+  padding: 10px;
+}
+
+.erase-button {
+  color: #32ae85;
+  background-color: #fff;
+}
+
+input[type="color"] {
+  width: 78px;
+  height: 45px;
+}

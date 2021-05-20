@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.canvas-element {
+  border: 4px solid #27e8a7;
+  background-color: #91b4d5;
+  box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+}
