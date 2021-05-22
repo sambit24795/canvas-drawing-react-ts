@@ -22,3 +22,7 @@ input:focus,
 input:active {
   outline: #27e8a7;
 }
+
+.save-button {
+  margin: 40px auto;
+}
